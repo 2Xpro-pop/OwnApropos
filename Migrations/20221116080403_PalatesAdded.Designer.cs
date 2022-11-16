@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OwnApropos;
 
@@ -10,9 +11,11 @@ using OwnApropos;
 namespace OwnApropos.Migrations
 {
     [DbContext(typeof(MementoMoriContext))]
-    partial class MementoMoriContextModelSnapshot : ModelSnapshot
+    [Migration("20221116080403_PalatesAdded")]
+    partial class PalatesAdded
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,26 +93,6 @@ namespace OwnApropos.Migrations
                     b.HasIndex("FillialId");
 
                     b.ToTable("Inventories");
-                });
-
-            modelBuilder.Entity("OwnApropos.Models.Pacient", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("HasPalate")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Pacients");
                 });
 
             modelBuilder.Entity("OwnApropos.Models.Palate", b =>

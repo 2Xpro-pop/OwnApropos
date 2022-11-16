@@ -13,6 +13,6 @@ namespace OwnApropos.Models
         public double Action { get; set; }
 
         public int FillialId { get; set; }
-        public Fillial Fillial { get; set; } = null!;
+        public virtual Fillial Fillial { get; set; }
     }
 }

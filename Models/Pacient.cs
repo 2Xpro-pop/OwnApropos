@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace OwnApropos.Models
 {
-    public class Inventory
+    public class Pacient
     {
         public int Id { get; set; }
         public string Name { get; set; }
-
-        public int FillialId { get; set; }
-        public virtual Fillial Fillial { get; set; }
+        public bool HasPalate { get; set; }
     }
 }

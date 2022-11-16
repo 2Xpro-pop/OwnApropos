@@ -14,6 +14,8 @@ namespace OwnApropos
         public DbSet<BudgetHistory> BudgetHistories { get; set; } = null!;
         public DbSet<Personal> Personals { get; set; } = null!;
         public DbSet<Inventory> Inventories { get; set; } = null!;
+        public DbSet<Palate> Palates { get; set; } = null!;
+        public DbSet<Pacient> Pacients { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

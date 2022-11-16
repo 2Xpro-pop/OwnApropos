@@ -1,0 +1,33 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:OwnApropos.ViewModels"
+             xmlns:views="using:OwnApropos.Views"
+             x:DataType="vm:PacientsViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="OwnApropos.Views.PacientsView">
+  <Panel>
+    <StackPanel>
+      <Panel Classes="corner-bg">
+        <DataGrid Items="{Binding Inventories}"
+                  SelectedItem="{Binding SelectedItem}"
+                  Classes="my-1">
+          <DataGrid.Columns >
+            <DataGridTextColumn Header="Имя" Width="180"  Binding="{Binding Name}"/>
+            <DataGridTextColumn IsReadOnly="True" Header="Филиал" Width="150" Binding="{Binding Fillial.Name}" />
+          </DataGrid.Columns>
+        </DataGrid>
+        <Image Classes="bg-icon right" Source="/Assets/hospital.png" />
+      </Panel>
+
+      <StackPanel Classes="horizontal my-1 space-1">
+        <Button Classes="secondary" Command="{Binding Add}">Добавить</Button>
+        <Button Classes="danger" Command="{Binding Remove}">Удалить</Button>
+        <Button Command="{Binding Save}">Сохранить</Button>
+      </StackPanel>
+
+    </StackPanel>
+
+  </Panel>
+</UserControl>

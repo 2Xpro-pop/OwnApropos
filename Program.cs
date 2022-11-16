@@ -25,6 +25,9 @@ namespace OwnApropos
             Locator.CurrentMutable.Register(() => new FillialsView(), typeof(IViewFor<FillialsViewModel>));
             Locator.CurrentMutable.Register(() => new PersonalView(), typeof(IViewFor<PersonalViewModel>));
             Locator.CurrentMutable.Register(() => new InventariesView(), typeof(IViewFor<InventariesViewModel>));
+            Locator.CurrentMutable.Register(() => new PalatesView(), typeof(IViewFor<PalatesViewModel>));
+
+            using (var db = new MementoMoriContext()) ;
 
             GC.KeepAlive(typeof(SvgImageExtension).Assembly);
             GC.KeepAlive(typeof(Avalonia.Svg.Skia.Svg).Assembly);

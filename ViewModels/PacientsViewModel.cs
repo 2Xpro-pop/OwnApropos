@@ -13,40 +13,40 @@ using System.Threading.Tasks;
 
 namespace OwnApropos.ViewModels
 {
-    public class InventariesViewModel : ViewModelBase, IRoutableViewModel
+    public class PacientsViewModel : ViewModelBase, IRoutableViewModel
     {
         public string? UrlPathSegment => "/fillials";
 
         public IScreen HostScreen { get; }
 
-        public ObservableCollection<Inventory> Inventories { get; }
-        public Inventory SelectedItem 
+        public ObservableCollection<Palate> Palates { get; }
+        public Palate SelectedItem
         {
-            get => inventory;
-            set => this.RaiseAndSetIfChanged(ref inventory, value);
+            get => palate;
+            set => this.RaiseAndSetIfChanged(ref palate, value);
         }
-        Inventory inventory;
+        Palate palate;
 
         public ReactiveCommand<Unit, Unit> Remove { get; }
         public ReactiveCommand<Unit, Unit> Save { get; }
         public ReactiveCommand<Unit, Task> Add { get; }
 
-        public InventariesViewModel(IScreen screen)
+        public PacientsViewModel(IScreen screen)
         {
             HostScreen = screen;
 
             using var db = new MementoMoriContext();
 
-            Inventories = new(db.Inventories.Include( i => i.Fillial));
+            Palates = new(db.Palates.Include(p => p.Fillial));
 
             Remove = ReactiveCommand.Create(() =>
             {
                 using var db = new MementoMoriContext();
 
-                db.Inventories.Remove(SelectedItem!);
+                db.Palates.Remove(SelectedItem!);
                 db.SaveChanges();
 
-                Inventories.Remove(SelectedItem!);
+                Palates.Remove(SelectedItem!);
             },
             this.WhenAnyValue(vm => vm.SelectedItem).Select(selected => selected != null));
 
@@ -54,24 +54,23 @@ namespace OwnApropos.ViewModels
             {
                 var dialog = new InventoryWindow();
 
-                var result = await dialog.ShowDialog<Inventory>(App.Current.MainWindow);
+                var result = await dialog.ShowDialog<Palate>(App.Current.MainWindow);
 
                 if (result == null) return;
 
-                Inventories.Add(result);
+                Palates.Add(result);
 
             });
+
 
             Save = ReactiveCommand.Create(() =>
             {
                 using var db = new MementoMoriContext();
 
-                db.Inventories.UpdateRange(Inventories);
+                db.Palates.UpdateRange(Palates);
                 db.SaveChanges();
 
             });
         }
-
-
     }
 }

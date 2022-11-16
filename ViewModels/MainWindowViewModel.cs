@@ -22,6 +22,7 @@ namespace OwnApropos.ViewModels
         public ReactiveCommand<Unit, IRoutableViewModel> GoToFillials { get; }
         public ReactiveCommand<Unit, IRoutableViewModel> GoToPersonals { get; }
         public ReactiveCommand<Unit, IRoutableViewModel> GoToInventaries { get; }
+        public ReactiveCommand<Unit, IRoutableViewModel> GoToPalates { get; }
 
         public MainWindowViewModel()
         {
@@ -35,6 +36,10 @@ namespace OwnApropos.ViewModels
 
             GoToInventaries = ReactiveCommand.CreateFromObservable(
                 () => Router.Navigate.Execute(new InventariesViewModel(this))
+            );
+
+            GoToPalates = ReactiveCommand.CreateFromObservable(
+                () => Router.Navigate.Execute(new PalatesViewModel(this))
             );
 
             GoBack = ReactiveCommand.CreateFromObservable(() => Router.NavigateBack.Execute() );

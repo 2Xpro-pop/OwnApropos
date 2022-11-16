@@ -44,7 +44,7 @@
             <rxui:RoutedViewHost.DefaultContent>
               <flex:FlexPanel Classes="navmenu">
                 <view:NavButtonView Text="Пациенты" Bg="#2F4B6D" Image="/Assets/bk.png"/>
-                <view:NavButtonView Text="Палаты" Bg="#551B66" Image="/Assets/palates.png"/>
+                <view:NavButtonView Text="Палаты"   Command="{Binding GoToPalates}" Bg="#551B66" Image="/Assets/palates.png"/>
                 <view:NavButtonView Text="Персонал" Command="{Binding GoToPersonals}" Bg="#655224" Image="/Assets/doctor.png"/>
                 <view:NavButtonView Text="Филлиалы" Command="{Binding GoToFillials}" Bg="#2F6651"  Image="/Assets/hospital.png"/>
                 <view:NavButtonView Text="Инветарь" Command="{Binding GoToInventaries}" Bg="#99375F"  Image="/Assets/invetory.png"/>

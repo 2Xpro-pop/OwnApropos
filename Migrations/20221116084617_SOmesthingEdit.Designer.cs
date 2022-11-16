@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OwnApropos;
 
@@ -10,9 +11,11 @@ using OwnApropos;
 namespace OwnApropos.Migrations
 {
     [DbContext(typeof(MementoMoriContext))]
-    partial class MementoMoriContextModelSnapshot : ModelSnapshot
+    [Migration("20221116084617_SOmesthingEdit")]
+    partial class SOmesthingEdit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
