@@ -1,0 +1,23 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:OwnApropos.Views">
+  <Design.PreviewWith>
+    <controls:NavControl />
+  </Design.PreviewWith>
+
+  <Style Selector="controls|NavControl">
+    <!-- Set Defaults -->
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Button x:Name="button" Classes="box">
+          <Panel>
+            <Panel>
+              <Image x:Name="Image" />
+            </Panel>
+            <TextBlock x:Name="text" Classes="h1"  VerticalAlignment="Bottom"/>
+          </Panel>
+        </Button>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>

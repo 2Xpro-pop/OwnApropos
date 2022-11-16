@@ -1,0 +1,58 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:OwnApropos.ViewModels"
+             xmlns:models="using:OwnApropos.Models"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="OwnApropos.Views.FillialsView"
+             x:DataType="vm:FillialsViewModel">
+  <Panel>
+    <StackPanel>
+      <Panel Classes="corner-bg">
+        <DataGrid Items="{Binding Fillials}" 
+                  SelectedItem="{Binding SelectedFillial}"
+                  CanUserResizeColumns="True"
+                  Classes="my-1"
+                  x:Name="fillialsDataGrid">
+          <DataGrid.Columns >
+            <DataGridTextColumn Header="Имя" Width="70"  Binding="{Binding Name}"/>
+            <DataGridTextColumn Header="Аддрес" Width="150" Binding="{Binding Address}" />
+            <DataGridTextColumn IsReadOnly="True" Header="Бюджет" Width="150" Binding="{Binding Budget, Converter={StaticResource somConverter} }" />
+          </DataGrid.Columns>
+        </DataGrid>
+        <Image Classes="bg-icon right" Source="/Assets/hospital.png" />
+      </Panel>
+      
+      <StackPanel Orientation="Horizontal" Spacing="25">
+        <Button Classes="secondary" Command="{Binding Add}">Добавить</Button>
+        <Button Command="{Binding AddBudget}">Выделить/Урезать бюджет</Button>
+        <Button Command="{Binding Save}">Сохранить</Button>
+      </StackPanel>
+
+      <TextBlock Classes="h1" Margin="0 16" Text="Отчет"/>
+
+      <Panel Classes="corner-bg">
+        <DataGrid Items="{Binding BudgetHistorieVms}" 
+                  IsReadOnly="True"
+                  Classes="my-1">
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="Имя филиала" Binding="{Binding Fillial}" />
+            <DataGridTextColumn Header="Описание" MinWidth="500" Binding="{Binding Description}" />
+            <DataGridTemplateColumn Header="Отчет" CanUserReorder="True" SortMemberPath="Currency">
+              <DataGridTemplateColumn.CellTemplate>
+                <DataTemplate>
+                  <TextBlock Text="{Binding Currency, StringFormat='{}{0} сом'}" VerticalAlignment="Center" HorizontalAlignment="Center"
+                             Foreground="{Binding Currency, Converter={StaticResource redOrGreenDobleConverter}}"/>
+                </DataTemplate>
+              </DataGridTemplateColumn.CellTemplate>
+              </DataGridTemplateColumn>
+          </DataGrid.Columns>
+        </DataGrid>
+        <Image Classes="bg-icon right" Source="/Assets/Report.png" />
+      </Panel>
+
+    </StackPanel>
+    
+  </Panel>
+</UserControl>

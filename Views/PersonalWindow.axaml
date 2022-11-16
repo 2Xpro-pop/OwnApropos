@@ -1,0 +1,72 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:views="using:OwnApropos.Views"
+        xmlns:vm="using:OwnApropos.ViewModels"
+        x:Class="OwnApropos.Views.PersonalWindow"
+        x:DataType="vm:PersonalWindowViewModel"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        Title="BudgetWindow">
+  <Panel>
+    <ExperimentalAcrylicBorder IsHitTestVisible="False">
+      <ExperimentalAcrylicBorder.Material>
+        <ExperimentalAcrylicMaterial
+            BackgroundSource="Digger"
+            TintColor="Black"
+            TintOpacity="1"
+            MaterialOpacity="0.65" />
+      </ExperimentalAcrylicBorder.Material>
+    </ExperimentalAcrylicBorder>
+
+    <StackPanel Margin="40" Classes="space-1">
+
+      <StackPanel Classes="horizontal space-1">
+        <TextBlock Text="Филлиал"
+                   VerticalAlignment="Center"/>
+        <views:IdPickableView Name="pickFillial"
+                              IdPickables="{Binding IdPickables}"
+                              Width="220"/>
+      </StackPanel>
+
+      <StackPanel Classes="horizontal space-1">
+        <TextBlock Text="Зарплата"
+                   VerticalAlignment="Center"/>
+        <NumericUpDown Value="{Binding Salary}" Width="180"/>
+      </StackPanel>
+
+      <StackPanel Classes="horizontal space-1">
+        <TextBlock Text="ФИО"
+                   VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Fio}" Width="400"/>
+      </StackPanel>
+      
+      <StackPanel Classes="horizontal space-1">
+        <TextBlock Text="Номер телефона"
+                   VerticalAlignment="Center"/>
+        <TextBox Text="{Binding TelefonNumber}" Width="400"/>
+      </StackPanel>
+
+      <StackPanel Classes="horizontal space-1">
+        <TextBlock Text="Адрес"
+                   VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Address}" Width="400"/>
+      </StackPanel>
+
+      <StackPanel Classes="horizontal space-1">
+        <TextBlock Text="Email"
+                   VerticalAlignment="Center"/>
+        <TextBox Text="{Binding Email}" Width="400"/>
+      </StackPanel>
+
+      <StackPanel Classes="horizontal space-1 my-1">
+        <Button Command="{Binding Save}" Classes="secondary">Сохранить</Button>
+        <Button Command="{Binding Close}">Закрыть</Button>
+      </StackPanel>
+
+    </StackPanel>
+  </Panel>
+</Window>

@@ -1,0 +1,36 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="using:OwnApropos.ViewModels"
+             xmlns:views="using:OwnApropos.Views"
+             x:DataType="vm:PersonalViewModel"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="OwnApropos.Views.PersonalView">
+  <Panel>
+    <StackPanel>
+      <Panel Classes="corner-bg">
+        <DataGrid Items="{Binding Personals}"
+                  SelectedItem="{Binding SelectedItem}"
+                  Classes="my-1">
+          <DataGrid.Columns >
+            <DataGridTextColumn Header="Фио" Width="180"  Binding="{Binding Fio}"/>
+            <DataGridTextColumn Header="Зарплата" Width="150" Binding="{Binding Salary}" />
+            <DataGridTextColumn  IsReadOnly="True" Header="Филиал" Width="150" Binding="{Binding Fillial.Name}" />
+          </DataGrid.Columns>
+        </DataGrid>
+        <Image Classes="bg-icon right" Source="/Assets/hospital.png" />
+      </Panel>
+      
+      <StackPanel Classes="horizontal my-1 space-1">
+        <Button Classes="secondary" Command="{Binding Add}">Добавить</Button>
+        <Button Command="{Binding AddPremia}">Выдать премию</Button>
+        <Button Classes="danger" Command="{Binding Fire}">Уволить</Button>
+        <Button Classes="danger" Command="{Binding AddSalary}">Выдать всем зарплату</Button>
+        <Button Command="{Binding Save}">Сохранить</Button>
+      </StackPanel>
+
+    </StackPanel>
+
+  </Panel>
+</UserControl>

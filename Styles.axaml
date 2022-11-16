@@ -1,0 +1,106 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:flex="using:Avalonia.Flexbox">
+    <Design.PreviewWith>
+        <Border Padding="20">
+          <Button Classes="box"/>
+        </Border>
+    </Design.PreviewWith>
+
+  <Style Selector=":is(TemplatedControl).secondary">
+    <Setter Property="Background" Value="Blue"/>
+  </Style>
+
+  <Style Selector=":is(TemplatedControl).danger">
+    <Setter Property="Background" Value="#99375F"/>
+  </Style>
+
+  <Style Selector="StackPanel.main">
+    <Setter Property="Spacing" Value="30"/>
+    <Setter Property="Margin" Value="25 25 25 50"/>
+  </Style>
+
+  <Style Selector="TextBlock.h1">
+    <Setter Property="FontSize" Value="32"/>
+    <Setter Property="FontWeight" Value="Bold"/>
+  </Style>
+
+  <Style Selector="Button.box">
+    <Setter Property="Margin" Value="20" />
+  </Style>
+  
+  <Style Selector="Button.box /template/ ContentPresenter">
+    <Setter Property="Width" Value="230"/>
+    <Setter Property="Height" Value="230"/>
+    <Setter Property="CornerRadius" Value="10" />
+    <Setter Property="Padding" Value="10" />
+  </Style>
+
+  <Style Selector="Button.box>Panel">
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="VerticalAlignment" Value="Stretch"/>
+  </Style>
+  
+  <Style Selector="WrapPanel.navmenu">
+    <Setter Property="Orientation" Value="Horizontal"/>
+    <Setter Property="HorizontalAlignment" Value="Center" />
+    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Visible"/>
+  </Style>
+
+  <Style Selector="flex|FlexPanel.navmenu">
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="JustifyContent" Value="Center"/>
+    <Setter Property="AlignItems" Value="Center" />
+    <Setter Property="Width" Value="900" />
+  </Style>
+
+  <Style Selector="DockPanel.footer">
+    <Setter Property="HorizontalAlignment" Value="Stretch"/>
+    <Setter Property="VerticalAlignment" Value="Bottom"/>
+    <Setter Property="Background">
+      <SolidColorBrush Color="Black" Opacity="0.4"/>
+    </Setter>
+  </Style>
+
+  <Style Selector="DockPanel.footer TextBlock">
+    <Setter Property="Margin" Value="15"/>
+    <Setter Property="HorizontalAlignment" Value="Center"/>
+    <Setter Property="FontSize" Value="24" />
+  </Style>
+
+  <Style Selector="Image.bg-icon">
+    <Setter Property="VerticalAlignment" Value="Bottom"/>
+    <Setter Property="Width" Value="180" />
+    <Setter Property="Margin" Value="0 25" />
+  </Style>
+
+  <Style Selector=":is(Layoutable).right">
+    <Setter Property="HorizontalAlignment" Value="Right"/>
+  </Style>
+
+  <Style Selector=":is(Layoutable).left">
+    <Setter Property="HorizontalAlignment" Value="Left"/>
+  </Style>
+
+  <Style Selector="Panel.corner-bg">
+    <Setter Property="MinHeight" Value="180" />
+  </Style>
+
+  <Style Selector="DataGrid">
+    <Setter Property="MaxHeight" Value="300"/>
+    <Setter Property="VerticalScrollBarVisibility" Value="Auto" />
+  </Style>
+
+  <Style Selector=":is(Layoutable).my-1">
+    <Setter Property="Margin" Value="0 8"/>
+  </Style>
+
+  <Style Selector="StackPanel.horizontal">
+    <Setter Property="Orientation" Value="Horizontal"/>
+  </Style>
+
+  <Style Selector="StackPanel.space-1">
+    <Setter Property="Spacing" Value="10"/>
+  </Style>
+
+</Styles>

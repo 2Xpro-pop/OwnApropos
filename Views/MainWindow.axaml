@@ -1,0 +1,65 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:OwnApropos.ViewModels"
+        xmlns:rxui="using:Avalonia.ReactiveUI"
+        xmlns:app="using:OwnApropos"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sk="using:Avalonia.Svg.Skia"
+        xmlns:view="using:OwnApropos.Views"
+        xmlns:flex="using:Avalonia.Flexbox"
+        mc:Ignorable="d" d:DesignWidth="1000" d:DesignHeight="700"
+        x:Class="OwnApropos.Views.MainWindow"
+        x:DataType="vm:MainWindowViewModel"
+        Icon="/Assets/Atynein.ico"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        Height="700"
+        Width="1000"
+        Title="OwnApropos">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+
+    <Panel>
+      <ExperimentalAcrylicBorder IsHitTestVisible="False">
+        <ExperimentalAcrylicBorder.Material>
+          <ExperimentalAcrylicMaterial
+              BackgroundSource="Digger"
+              TintColor="Black"
+              TintOpacity="1"
+              MaterialOpacity="0.0" />
+        </ExperimentalAcrylicBorder.Material>
+      </ExperimentalAcrylicBorder>
+    
+      <StackPanel Classes="main">
+        <StackPanel Orientation="Horizontal" Spacing="10">
+          <Image Height="50" Source="{sk:SvgImage /Assets/Atynein.svg}"/>
+          <TextBlock Classes="h1" Text="Memento mori"/>
+        </StackPanel>
+        <ScrollViewer>
+          <rxui:RoutedViewHost Router="{Binding Router}" >
+            <rxui:RoutedViewHost.DefaultContent>
+              <flex:FlexPanel Classes="navmenu">
+                <view:NavButtonView Text="Пациенты" Bg="#2F4B6D" Image="/Assets/bk.png"/>
+                <view:NavButtonView Text="Палаты" Bg="#551B66" Image="/Assets/palates.png"/>
+                <view:NavButtonView Text="Персонал" Command="{Binding GoToPersonals}" Bg="#655224" Image="/Assets/doctor.png"/>
+                <view:NavButtonView Text="Филлиалы" Command="{Binding GoToFillials}" Bg="#2F6651"  Image="/Assets/hospital.png"/>
+                <view:NavButtonView Text="Инветарь" Command="{Binding GoToInventaries}" Bg="#99375F"  Image="/Assets/invetory.png"/>
+              </flex:FlexPanel>
+            </rxui:RoutedViewHost.DefaultContent>
+          </rxui:RoutedViewHost>
+          </ScrollViewer>
+      
+      
+      </StackPanel>
+
+      <DockPanel Classes="footer">
+        <Button Content="Назад" Command="{Binding GoBack}"/>
+        <TextBlock Text="Проект по бд" /> 
+      </DockPanel>
+    </Panel>
+  
+</Window>

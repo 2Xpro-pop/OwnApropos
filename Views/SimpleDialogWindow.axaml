@@ -1,0 +1,41 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        xmlns:views="using:OwnApropos.Views"
+        xmlns:vm="using:OwnApropos.ViewModels"
+        x:Class="OwnApropos.Views.SimpleDialogWindow"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
+        Title="BudgetWindow">
+  <Panel>
+    <ExperimentalAcrylicBorder IsHitTestVisible="False">
+      <ExperimentalAcrylicBorder.Material>
+        <ExperimentalAcrylicMaterial
+            BackgroundSource="Digger"
+            TintColor="Black"
+            TintOpacity="1"
+            MaterialOpacity="0.65" />
+      </ExperimentalAcrylicBorder.Material>
+    </ExperimentalAcrylicBorder>
+
+    <StackPanel Margin="40" Classes="space-1">
+
+      <TextBlock x:Name="warnig" Foreground="{StaticResource danger}"/>
+
+      <StackPanel Classes="horizontal space-1">
+        <TextBlock x:Name="textBlock"
+                   VerticalAlignment="Center"/>
+        <TextBox x:Name="textBox" Width="350" />
+      </StackPanel>
+
+      <StackPanel Classes="horizontal space-1 my-1">
+        <Button x:Name="save" Classes="secondary">Сохранить</Button>
+        <Button x:Name="close" >Закрыть</Button>
+      </StackPanel>
+
+    </StackPanel>
+  </Panel>
+</Window>
