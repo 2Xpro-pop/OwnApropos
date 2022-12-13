@@ -92,8 +92,6 @@ namespace OwnApropos.ViewModels
                 db.Fillials.Update(fillial);
 
                 db.SaveChanges();
-
-                Personals.Remove(SelectedItem!);
             },
             this.WhenAnyValue(vm => vm.SelectedItem).Select(selected => selected != null));
 

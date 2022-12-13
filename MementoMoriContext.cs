@@ -21,5 +21,9 @@ namespace OwnApropos
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=memento_mori;Trusted_Connection=True;");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+        }
     }
 }

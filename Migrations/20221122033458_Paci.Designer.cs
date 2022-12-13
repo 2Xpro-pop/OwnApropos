@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OwnApropos;
 
@@ -11,9 +12,11 @@ using OwnApropos;
 namespace OwnApropos.Migrations
 {
     [DbContext(typeof(MementoMoriContext))]
-    partial class MementoMoriContextModelSnapshot : ModelSnapshot
+    [Migration("20221122033458_Paci")]
+    partial class Paci
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -109,6 +112,9 @@ namespace OwnApropos.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("PalateId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PalatelId")
                         .HasColumnType("int");
 
                     b.Property<int>("PersonalId")

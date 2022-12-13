@@ -55,11 +55,6 @@
       
       
       </StackPanel>
-
-      <DockPanel Classes="footer">
-        <Button Content="Назад" Command="{Binding GoBack}"/>
-        <TextBlock Text="Проект по бд" /> 
-      </DockPanel>
     </Panel>
   
 </Window>

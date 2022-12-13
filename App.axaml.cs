@@ -2,8 +2,10 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
+using OwnApropos.Models;
 using OwnApropos.ViewModels;
 using OwnApropos.Views;
+using System.Linq;
 
 namespace OwnApropos
 {
@@ -13,6 +15,8 @@ namespace OwnApropos
         public Window MainWindow { get; set; }
         public override void Initialize()
         {
+            Fillial[] fillials;
+            using (var db = new MementoMoriContext()) fillials = db.Fillials.ToArray();
             AvaloniaXamlLoader.Load(this);
         }
 
